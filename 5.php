@@ -4,10 +4,10 @@
 <head>
   <script type="text/javascript">
 function count_handshake() {
-    var v1 = document.getElementById('orang').value;
+    var v = document.getElementById('orang').value;
     var i=0;
     var t=0;
-    for(i;i<v1;i++){
+    for(i;i<v;i++){
         t +=i;
     }
    console.log(t);
