@@ -1,14 +1,16 @@
-<?php
-function count_handshake($n)
-{
-    $x = 0;
-    for ($i = ($n - 1); $i > 0; $i--) {
-        $x += $i;
-    }
-
-    return $x;
+<?php 
+function count_handshake($x) {
+	$sum = 0;
+	$i = 0;
+	while ($i < $x) {
+	$sum = $sum + $i; // menjumlah dengan perulangan
+	$i++;
+	}
+	echo $sum;
+	echo "<br>";
 }
-echo 'hasil count: <br>';
-print count_handshake(3);
-echo '<br>';
+echo "jumlah handshake : ";
+echo "<br>";
 print count_handshake(6);
+print count_handshake(3);
+ ?>
