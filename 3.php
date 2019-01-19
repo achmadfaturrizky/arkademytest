@@ -1,10 +1,10 @@
 <?php 
-function draw_kotak($x){
+function draw_kotak($panjang){
     $kotak = true;
     $result = "";
     
-    for ($i=0; $i < $x; $i++) { 
-        for ($j=0; $j < $x; $j++) { 
+    for ($i=0; $i < $panjang; $i++) { 
+        for ($j=0; $j < $panjang; $j++) { 
             if($kotak)
                 $result .="*";
             else
