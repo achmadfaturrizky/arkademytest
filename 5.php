@@ -1,9 +1,14 @@
 <?php
-    $jumlah = 6;
-    $i =0;
-    $count_handshake =0;
-    for($i;$i<$jumlah; $i++){
-        $count_handshake +=$i;
+function count_handshake($n)
+{
+    $x = 0;
+    for ($i = ($n - 1); $i > 0; $i--) {
+        $x += $i;
     }
-   echo "hasil count handshake dari jumlah $jumlah orang adalah : $count_handshake"
-?>
+
+    return $x;
+}
+echo 'hasil count: <br>';
+print count_handshake(3);
+echo '<br>';
+print count_handshake(6);
