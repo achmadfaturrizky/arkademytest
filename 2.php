@@ -1,38 +1,57 @@
 <?php
-	// Membuat variabel
-	$username="bigboss_";
-	$password = "qazW_123";
-	$usernameErr = "";
-	$passErr = "";
-	$username_valid = "";
-	$username_valid_msg = "";
-	$password_valid = "";
-	$password_valid_msg = "";
-		
-		// Kode cek username hanya boleh huruf a-z dan A-Z
-		if(!preg_match("/^[a-z_]{8,}$/",$username))
-		{
-			$username_valid = false;
-			$username_valid_msg = "Username, $username tidak valid, harus terdiri dari huruf kecil dan underscore. Dengan pangjang 8
-karakter.<br>";
-		}else
-		{	
-			$username_valid = true;
-			$username_valid_msg = "Username, $username Valid<br>";
-		}
-		
-		
-		// Cek minimal karakter password (minimal 8 digit)
-		if(!preg_match( '/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]){8,}/', $password))
-		{
-			$password_valid = false;
-			$password_valid_msg = "Password $password tidak valid, Password minimal 8 digit atau setidaknya terdapat sebuah huruf kecil, sebuah huruf besar, sebuah angka, dan sebuah karakter spesial.<br>";
-		}
-		else
-		{
-			$password_valid = true;
-			$password_valid_msg = "Password, $password Valid<br>";	
-		}
-?>
-<?php echo $usernameErr.$username_valid_msg; ?>
-<?php echo $passErr.$password_valid_msg; ?>
+function is_username_valid($username)
+{
+    $hasilUsername = '';
+    if (strlen($username) == 8) {
+        if (preg_match('/[a-z]/', $username)) {
+                if (preg_match('/_/', $username)) {
+                    $hasilUsername .= 'Username valid.<br>';
+                } else {
+                    $hasilUsername .= 'Username tidak valid.<br>';
+                    $hasilUsername .= 'Username harus mengandung karakter garis bawah (_).<br>';
+                }
+        } else {
+            $hasilUsername .= 'Username tidak valid.<br>';
+            $hasilUsername .= 'Username harus mengandung huruf kecil.<br>';
+        }
+    } else {
+        $hasilUsername .= 'Username tidak valid.<br>';
+        $hasilUsername .= 'Panjang username harus 8 karakter.<br>';
+    }
+    return print $hasilUsername;
+}
+
+function is_password_valid($password)
+{
+    $hasilPassword = '';
+    if (strlen($password) == 8) {
+        if (preg_match('/[a-z]/', $password)) {
+            if (preg_match('/[A-Z]/', $password)) {
+                if (preg_match('/[0-9]/', $password)) {
+                    if (preg_match('/[_|&|@]{1}/', $password)) {
+                        $hasilPassword .= 'Password valid.<br>';
+                    } else {
+                        $hasilPassword .= 'Password tidak valid.<br>';
+                        $hasilPassword .= 'Panjang password harus mengandung karakter (_ & .).<br>';
+                    }
+                } else {
+                    $hasilPassword .= 'Password tidak valid.<br>';
+                    $hasilPassword .= 'Panjang password harus mengandung angka.<br>';
+                }
+            } else {
+                $hasilPassword .= 'Password tidak valid.<br>';
+                $hasilPassword .= 'Panjang password harus mengandung huruf kapital.<br>';
+            }
+        } else {
+            $hasilPassword .= 'Password tidak valid.<br>';
+            $hasilPassword .= 'Panjang password harus mengandung huruf kecil.<br>';
+        }
+    } else {
+        $hasilPassword .= 'Password tidak valid.<br>';
+        $hasilPassword .= 'Panjang password harus 8 karakter.<br>';
+    }
+    return print $hasilPassword;
+}
+
+is_username_valid('solo_abc');
+is_password_valid('wsxe99##');
