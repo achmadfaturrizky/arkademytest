@@ -109,4 +109,4 @@ ALTER TABLE `hobbies`
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 SELECT persons.id, persons.name AS name, GROUP_CONCAT(hobbies.name) AS person_hobbies
-FROM persons, hobbies WHERE hobbies.person_id = persons.id GROUP BY persons.id
+FROM persons, hobbies WHERE hobbies.person_id = persons.id GROUP BY persons.id ORDER BY name ASC
