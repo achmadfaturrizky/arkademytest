@@ -54,8 +54,8 @@ $conn = mysqli_connect($hostname, $username, $password, $database) or die("Conne
 				<tbody>
 					<?php
 				
-				$query = "SELECT categories.id, categories.name AS name, GROUP_CONCAT(hobbies.name) AS person_hobbies
-FROM categories, hobbies WHERE hobbies.person_id = categories.id GROUP BY categories.id";
+				$query = "SELECT persons.id, persons.name AS name, GROUP_CONCAT(hobbies.name) AS person_hobbies
+FROM persons, hobbies WHERE hobbies.person_id = persons.id GROUP BY persons.id";
 				$sqlcon = $conn->query($query);
 				while($read=mysqli_fetch_array($sqlcon)){
 				echo '<tr>';
