@@ -1,25 +1,21 @@
-<?php
-
-$huruf = [
-	[1, 1, 1, 1, 1, 1, 1],
-	[1, 0, 0, 1, 0, 0, 1],
-	[1, 0, 0, 1, 0, 0, 1],
-	[1, 1, 1, 1, 1, 1, 1],
-	[1, 0, 0, 1, 0, 0, 1],
-	[1, 0, 0, 1, 0, 0, 1],
-	[1, 1, 1, 1, 1, 1, 1],
-];
-
-foreach( $huruf as $key => $value ) {
-
-	echo "<table bgcolor='white'>";
-
-	foreach( $value as $key2 => $value2 ) {
-
-		echo $huruf[$key][$key2] == 1 ? '<td width="20" bgcolor="white">*</td>' : '<td width="20" bgcolor="white"></td>';
-	
-	}
-
-	echo "</table>";
-
+<?php 
+function draw_kotak($x){
+    $kotak = true;
+    $result = "";
+    
+    for ($i=0; $i < $x; $i++) { 
+        for ($j=0; $j < $x; $j++) { 
+            if($kotak)
+                $result .="*";
+            else
+                $result .=" ";
+            $kotak = !$kotak;
+        }
+        $result .="<br>";
+    }
+    echo "<pre>";
+    echo $result;
 }
+draw_kotak(7);
+draw_kotak(5);
+?>
