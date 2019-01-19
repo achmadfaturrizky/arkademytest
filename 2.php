@@ -32,19 +32,19 @@ function is_password_valid($password)
                         $hasilPassword .= 'Password valid.<br>';
                     } else {
                         $hasilPassword .= 'Password tidak valid.<br>';
-                        $hasilPassword .= 'Panjang password harus mengandung karakter (_ & .).<br>';
+                        $hasilPassword .= 'Password harus mengandung karakter.<br>';
                     }
                 } else {
                     $hasilPassword .= 'Password tidak valid.<br>';
-                    $hasilPassword .= 'Panjang password harus mengandung angka.<br>';
+                    $hasilPassword .= 'Password harus mengandung angka.<br>';
                 }
             } else {
                 $hasilPassword .= 'Password tidak valid.<br>';
-                $hasilPassword .= 'Panjang password harus mengandung huruf kapital.<br>';
+                $hasilPassword .= 'Password harus mengandung huruf kapital.<br>';
             }
         } else {
             $hasilPassword .= 'Password tidak valid.<br>';
-            $hasilPassword .= 'Panjang password harus mengandung huruf kecil.<br>';
+            $hasilPassword .= 'Password harus mengandung huruf kecil.<br>';
         }
     } else {
         $hasilPassword .= 'Password tidak valid.<br>';
@@ -53,5 +53,7 @@ function is_password_valid($password)
     return print $hasilPassword;
 }
 
-is_username_valid('solo_abc');
-is_password_valid('wsxe99##');
+is_username_valid('solo_abc'); // return true
+is_password_valid('wsxe99##'); // return false
+
+?>
