@@ -6,11 +6,9 @@ function count_handshake($x) {
 	$sum = $sum + $i; // menjumlah dengan perulangan
 	$i++;
 	}
-	echo $sum;
-	echo "<br>";
+	echo $sum."<br>";
 }
-echo "jumlah handshake : ";
-echo "<br>";
+echo "jumlah handshake :<br>";
 print count_handshake(6);
 print count_handshake(3);
  ?>
